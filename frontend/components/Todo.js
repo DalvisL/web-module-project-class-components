@@ -2,11 +2,13 @@ import React from 'react'
 
 // Each todo item will be rendered as an instance of the Todo component.
 // Each one is part of the TodoList component.
+
+//emoji for checkmark: https://emojipedia.org/check-mark-button/
 export default class Todo extends React.Component {
   render() {
     return (
-      <div>
-        {this.props.todo}
+      <div onClick={() => this.props.handleTodoClick(this.props.todo.id)} className={` todo ${this.props.todo.completed ? 'completed' : null}`} >
+        {this.props.todo.name}{this.props.todo.completed ? '✔️' : null }
       </div>
     )
   }
